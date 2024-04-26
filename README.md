@@ -77,7 +77,7 @@ Identifiers can be in format:
 - Concept Unique Identifier
 - Code in another vocabulary
 
-### Example
+### Example node row
 | term | code | definition | synonym| dbxref   |
 | --- | --- | --- | --- | ---|
 | Color | ABC:C001 | visual perception based on the electromagnetic spectrum| hue\|cast\|tint | UMLS:C0009393|
@@ -87,8 +87,9 @@ Identifiers can be in format:
 ### Column F (isa)
 Column F defines _isa_, or hierchical, edges between code nodes.
 A code can be in multiple _isa_ hierarchies. To define multiple hierarchies, use comma delimiting in the *isa* column.
+Identify a node for an _isa_ relationship using the term in column A, not the code in colum B.
 
-### Example
+#### Example
 
 The **ABC:C003** (blue) code is a member of two hierarchies--one with parent **ABC:C001** (Color) and one with parent **ABC:C002** (Emotion).
 
@@ -98,7 +99,50 @@ The **ABC:C003** (blue) code is a member of two hierarchies--one with parent **A
 | Emotion | ABC:C002 | physical and mental states brought on by neurophysiological changess| feeling | | |
 | blue| ABC:C003 | | | |Color,Emotion|
 
+#### Rules for isa hierarchies
+1. There must be a _root_ node with no value in the *isa* column.
+2. All other nodes must have at least one reference in the *isa* column.
+3. Values in *isa* must be terms in Column A.
 
+### Custom edges
+The columns after F can be used to define custom edges.
+The cell that intersects a node row and an edge column defines the edge between the node's row and other nodes.
+
+#### Example
+
+Note:
+1. The **thing** root node.
+2. The **Color**, **Emotion**, and **sky** nodes are all members of the **thing** hierarchy.
+3. The **blue** node is a member of both the **Color** and **Emotion** hierarchies.
+4. The **cyan** and **azure** nodes are children of **blue**, and thus are in the **Color** hierarchy.
+5. The **sky** node is used in the **used_to_describe** custom edge column. This represents the assertion **azure** _used_to_describe_ **sky**.
+
+| term | code | definition | synonym| dbxref   | isa| used_to_describe |
+| --- | --- | --- | --- | ---| ---| --- |
+| thing| ABC:C000 | root |||| |
+| Color | ABC:C001 | visual perception based on the electromagnetic spectrum| hue\|cast\|tint | UMLS:C0009393|thing | |
+| Emotion | ABC:C002 | physical and mental states brought on by neurophysiological changess| feeling | |thing | |
+| blue| ABC:C003 | | | |Color,Emotion| |
+|cyan| ABC:C004| | | | blue| |
+|azure| ABC:C005||| |blue| sky|
+|sky| ABC:C006||||thing| |
+
+This will result in a graph similar to
+
+<img width="341" alt="image" src="https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/c4ccc7b0-ac93-42e6-9785-eb7c713342c0">
+
+# Visualization
+It is possible to visualize parts of a SimpleKnowledge knowledge graph using the custom **guesdt** application. **guesdt** is a Javascript app that works with the SimpleKnowledge source in Google Sheet.
+
+To visualize a SimpleKnowledge graph, enter into a browser a URL in format https://guesdt.com/SimpleKnowledgeVisualization.html?sheet=sheetid.
+
+Obtain the id for the Google Sheet used by the **guesdt** from the URL that points to the Google Sheet--e.g.,
+
+https://docs.google.com/spreadsheets/d/1D-rDOrqIuJ6DI-zoGlKMwPJ4ncw_au6_nSlJ_mlsw3U/edit#gid=952245609
+
+The following image is from the visualization of the example SimpleKnowledge graph. Note that the visualization automatically creates inverse relationships (e.g., _inverse_isa_).
+
+<img width="1217" alt="image" src="https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/a02f0666-ce7a-480f-809d-5bb36026bdb8">
 
 
 
