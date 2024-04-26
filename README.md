@@ -28,12 +28,22 @@ The UBKG graph architecture is based on the UMLS model, in which a concept in a 
   
 ![image](https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/244a80e7-0a5c-4e72-bef4-74149b482b13)
 
+### Concept cross-referencing
 The UBKG also allows _concept cross-referencing_, in which *Code* nodes share links to *Concept* nodes. When the code in a vocabulary is cross-referenced to a code in another vocabulary, the *Code* node is linked to the *Concept* node associated with the other *Code*. This allows for concept synonymy by traversal across vocabularies. 
 
 For example, the following illustrates how "right kidney" is encoded in the UBKG in multiple vocabularies. The codes in the vocabularies share concept C0227613:
 
 <img width="450" alt="image" src="https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/2e23ffef-9042-4649-8509-a0ed8c5b7add">
 
+| Code  | Term |
+| ------------- | ------------- |
+| SENNET:C030030  | Kidney (Right)  |
+| HUBMAP:C030059  | Kidney (Right) |
+| NCI:C34005 | Right Kidney|
+|UWDA:7204| Right kidney|
+| SNOMEDCT_US:9846003|Right kidney structure|
+| UBERON:0004539| right kidney|
+|CHV:0000022146|right kidney|
 
 # Building a SimpleKnowledge Editor
 
