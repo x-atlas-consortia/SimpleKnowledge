@@ -1,5 +1,7 @@
 # SimpleKnowledge Knowledge Graph Editor User Guide
 
+The SimpleKnowledge Editor is a tool to describe straightforward _ontologies_ that do not involve reasoning, based solely on assertion triplets. The SimpleKnowledge Editor is thus an alternative to OWL editors such as Stanford's [Protege](https://protege.stanford.edu/).
+
 ## Knowledge Graphs
 The SimpleKnowledge Editor is a tool to build the source for a _RDF knowledge graph_. A knowledge graph can be considered to be a set of _assertions_. An assertion
 defines a _relationship_ between two _entities_. 
@@ -16,7 +18,7 @@ A graph that represents properties as nodes is known as a _RDF graph_. For examp
 
 <img width="288" alt="image" src="https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/90014c2b-0c4d-40e1-bc0e-6451e48d4483">
 
-## SimpleKnowledge Editor
+## UBKG model
 The SimpleKnowledge Editor is a Google Sheets solution to generate a RDF knowledge graph. The primary application of the SimpleKnowledge Editor is the creation of source that can be imported and translated into an instance of a [Unified Biological Knowledge Graph](https://ubkg.docs.xconsortia.org/).
 
 The UBKG graph architecture is based on the UMLS model, in which a concept in a vocabulary (e.g., a SimpleKnowledge ontology) is represented with 
@@ -29,9 +31,9 @@ The UBKG graph architecture is based on the UMLS model, in which a concept in a 
 ![image](https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/244a80e7-0a5c-4e72-bef4-74149b482b13)
 
 ### Concept cross-referencing
-The UBKG also allows _concept cross-referencing_, in which *Code* nodes share links to *Concept* nodes. When the code in a vocabulary is cross-referenced to a code in another vocabulary, the *Code* node is linked to the *Concept* node associated with the other *Code*. This allows for concept synonymy by traversal across vocabularies. 
+The UBKG also allows _concept cross-referencing_ (also known as *equivalence classes*), in which *Code* nodes share links to *Concept* nodes. When the code in a vocabulary is cross-referenced to a code in another vocabulary, the *Code* node is linked to the *Concept* node associated with the other *Code*. This allows for code synonymy by traversal across vocabularies. 
 
-For example, the following illustrates how "right kidney" is encoded in the UBKG in multiple vocabularies. The codes in the vocabularies share concept C0227613:
+The following illustrates how "right kidney" is encoded in the UBKG in multiple vocabularies. The codes in the vocabularies share concept C0227613:
 
 <img width="450" alt="image" src="https://github.com/x-atlas-consortia/SimpleKnowledge/assets/10928372/2e23ffef-9042-4649-8509-a0ed8c5b7add">
 
@@ -47,9 +49,27 @@ For example, the following illustrates how "right kidney" is encoded in the UBKG
 
 # Building a SimpleKnowledge Editor
 
-It is possible with the SimpleKnowledge Editor to describe straightforward _ontologies_ that do not involve reasoning--i.e., based solely on assertion triplets. The SimpleKnowledge Editor is thus an alternative to OWL editors such as Stanford's [Protege](https://protege.stanford.edu/).
-
 To build a SimpleKnowledge Editor for a knowledge graph, make a copy of the [Example SimpleKnowledge Editor](https://docs.google.com/spreadsheets/d/1D-rDOrqIuJ6DI-zoGlKMwPJ4ncw_au6_nSlJ_mlsw3U/edit?usp=sharing) document. Work in the sheet named *SimpleKnowledge Editor*.
 
 The cells in the SimpleKnowledge Editor sheet represent the nodes and edges of the knowledge graph. The SimpleKnowledge Editor uses data validation rules to enforce the required structure of the nodes and edges.
+
+## Node columns
+To define a node, complete columns A-F.
+
+### Column A (term)
+This is the required *preferred term* for the node. 
+The term must be unique.
+
+### Column B (code)
+This is the code for the node in the ontology represented by the SimpleKnowledge Editor.
+The format of the code should be _SAB_:_CODE_, in which _SAB_ is an acronym for ontology.
+
+### Column C (definition)
+This is an optional definition for the code.
+
+### Column D (synonyms)
+This is an optional list of synonyms for the code. The list should be pipe-delimited.
+
+
+
 
