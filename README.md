@@ -63,12 +63,42 @@ The term must be unique.
 ### Column B (code)
 This is the code for the node in the ontology represented by the SimpleKnowledge Editor.
 The format of the code should be _SAB_:_CODE_, in which _SAB_ is an acronym for ontology.
+Codes must be unique.
 
 ### Column C (definition)
 This is an optional definition for the code.
 
 ### Column D (synonyms)
 This is an optional list of synonyms for the code. The list should be pipe-delimited.
+
+### Column E (dbxref)
+Identifier for the optional equivalence class or cross-reference for the code. 
+Identifiers can be in format:
+- Concept Unique Identifier
+- Code in another vocabulary
+
+### Example
+| term | code | definition | synonym| dbxref   |
+| --- | --- | --- | --- | ---|
+| Color | ABC:C001 | visual perception based on the electromagnetic spectrum| hue\|cast\|tint | UMLS:C0009393|
+
+## Edge columns
+
+### Column F (isa)
+Column F defines _isa_, or hierchical, edges between code nodes.
+A code can be in multiple _isa_ hierarchies. To define multiple hierarchies, use comma delimiting in the *isa* column.
+
+### Example
+
+The **ABC:C003** (blue) code is a member of two hierarchies--one with parent **ABC:C001** (Color) and one with parent **ABC:C002** (Emotion).
+
+| term | code | definition | synonym| dbxref   | isa|
+| --- | --- | --- | --- | ---| ---|
+| Color | ABC:C001 | visual perception based on the electromagnetic spectrum| hue\|cast\|tint | UMLS:C0009393| |
+| Emotion | ABC:C002 | physical and mental states brought on by neurophysiological changess| feeling | | |
+| blue| ABC:C003 | | | |Color,Emotion|
+
+
 
 
 
