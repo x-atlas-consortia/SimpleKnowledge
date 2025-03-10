@@ -96,7 +96,7 @@ The **ABC:C003** (blue) code is a member of two hierarchies--one with parent **A
 | term | code | definition | synonym| dbxref   | isa|
 | --- | --- | --- | --- | ---| ---|
 | Color | ABC:C001 | visual perception based on the electromagnetic spectrum| hue\|cast\|tint | UMLS:C0009393| |
-| Emotion | ABC:C002 | physical and mental states brought on by neurophysiological changess| feeling | | |
+| Emotion | ABC:C002 | physical and mental states brought on by neurophysiological changes| feeling | | |
 | blue| ABC:C003 | | | |Color,Emotion|
 
 #### Rules for isa hierarchies
