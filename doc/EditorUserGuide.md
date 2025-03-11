@@ -72,10 +72,13 @@ This is an optional definition for the code.
 This is an optional list of synonyms for the code. The list should be pipe-delimited.
 
 ### Column E (dbxref)
-Identifier for the optional equivalence class or cross-reference for the code. 
+Identifier for the optional equivalence class(es) or cross-reference(s) for the code. 
 Identifiers can be in format:
 - Concept Unique Identifier
 - Code in another vocabulary
+
+If a code can be cross-referenced to multiple entities, the entities should be in a pipe-delimited list--i.e.,
+`<SAB1:CODE1>|<SAB2:CODE2>`
 
 ### Example node row
 | term | code | definition | synonym| dbxref   |
