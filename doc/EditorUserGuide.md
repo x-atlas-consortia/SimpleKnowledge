@@ -109,12 +109,16 @@ The **ABC:C003** (blue) code is a member of two hierarchies--one with parent **A
 
 ### Custom edges
 The columns after F can be used to define custom edges.
-The cell that intersects a node row and an edge column defines the edge between the node's row and other nodes.
+
+A cell in a custom edge column defines the object node of the assertion for which:
+1. the value in the **term** column is the subject node
+2. the header of the custom edge column is the predicate
+
 
 #### Example
 
 Note:
-1. The **thing** root node.
+1. The **thing** node is a root node of the ontology.
 2. The **Color**, **Emotion**, and **sky** nodes are all members of the **thing** hierarchy.
 3. The **blue** node is a member of both the **Color** and **Emotion** hierarchies.
 4. The **cyan** and **azure** nodes are children of **blue**, and thus are in the **Color** hierarchy.
