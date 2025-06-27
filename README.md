@@ -27,6 +27,9 @@ The spreadsheets in this repository are of three types:
 3. **SimpleKnowledgeSTELLAR**: annotation mapping of STELLAR annotations to
     + cell type codes in Cell Ontology
     + codes in UBERON
+4. **SimpleKnowledgePanOrganAzimuth**: annotation of Pan Organ Azimuth annotations to
+    + cell type codes in Cell Ontology
+    + codes in UBERON
 
 ## Valuesets
 1. **SimpleKnowledgeGenCode**: valueset to support the ingestion of GENCODE into the UBKG
