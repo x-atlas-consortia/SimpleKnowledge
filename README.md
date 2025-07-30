@@ -35,4 +35,5 @@ The spreadsheets in this repository are of three types:
 1. **SimpleKnowledgeGenCode**: valueset to support the ingestion of GENCODE into the UBKG
 2. **SimpleKnowledgeReactome**: valueset to support the ingestion of Reactome into the UBKG
 3. **SimpleKnowledgeMTP_VS**: valueset to support the ingestion of data from the Molecular Targets Project (MTP) into the UBKG
+4. **SimpleKnowledgeSenotype_VS**: valueset to support the ingestion of Senotype library data
 
